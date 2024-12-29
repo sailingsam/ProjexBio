@@ -12,7 +12,16 @@ const Navbar = async () => {
     <header className="px-5 py-3 bg-black shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
         <Link href="/">
-          <Image src="/whiteLogoSymbol.svg" alt="logo" height={10} width={50}  />
+          {/* crop image from height */}
+          <Image
+            src="/whitetextlogo.svg"
+            alt="logo"
+            className="h-[50px]"
+            width={300}
+            height={300}
+            
+            objectFit="cover"
+          />
         </Link>
 
         <div className="flex items-center gap-4 text-white">
@@ -22,10 +31,12 @@ const Navbar = async () => {
                 <span>Create Project</span>
               </Link>
 
-              <form action={async () => {
-                'use server';
-                await signOut({redirectTo: '/'});
-              }}>
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut({ redirectTo: "/" });
+                }}
+              >
                 <button type="submit">
                   <span>Logout</span>
                 </button>
@@ -36,10 +47,12 @@ const Navbar = async () => {
               </Link>
             </>
           ) : (
-            <form action={async () => {
-              'use server';
-              await signIn('github');
-            }}>
+            <form
+              action={async () => {
+                "use server";
+                await signIn("github");
+              }}
+            >
               <button type="submit">
                 <span>Login</span>
               </button>
